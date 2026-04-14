@@ -271,3 +271,4 @@ result_frame = ctk.CTkFrame(root, fg_color="transparent")
 result_frame.pack(pady=10)
 
 root.mainloop()
+       
