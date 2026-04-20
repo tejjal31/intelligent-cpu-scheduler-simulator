@@ -83,7 +83,7 @@ def round_robin(processes, quantum):
     # Calculate CPU Utilization
     total_time = max(finish_times) - processes[0][1]
     busy_time = sum(r['burst'] for r in results)
-    cpu_utilization = (busy_time / total_time) * 100 if total_time > 0 else 100
+    cpu_utilization = min((busy_time / total_time) * 100, 100) if total_time > 0 else 100
 
     # Calculate Throughput
     throughput = len(results) / total_time if total_time > 0 else 0

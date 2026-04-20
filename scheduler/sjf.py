@@ -64,7 +64,7 @@ def sjf(processes):
     # Calculate CPU Utilization
     total_time = results[-1]['finish'] - results[0]['arrival']
     busy_time = sum(r['burst'] for r in results)
-    cpu_utilization = (busy_time / total_time) * 100 if total_time > 0 else 100
+    cpu_utilization = min((busy_time / total_time) * 100, 100) if total_time > 0 else 100
 
     # Calculate Throughput
     throughput = len(results) / total_time if total_time > 0 else 0
